@@ -1,0 +1,11 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+# Lets the frontend always POST to /api/contact, whether the site is
+# deployed on Netlify or Vercel — no client-side code changes needed.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shiwatrix Lifesciences | Toxicology &amp; Regulatory Consulting</title>
+<meta name="description" content="Shiwatrix Lifesciences delivers globally accredited toxicology and regulatory consulting that helps medical device and pharmaceutical innovations reach patients safely and in full compliance with international standards." />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/tailwind-config.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<link rel="stylesheet" href="assets/style.css" />
+<script>(function(){try{if(localStorage.getItem('theme')==='light'){document.documentElement.classList.add('light');}}catch(e){}})();</script>
+<link rel="icon" type="image/png" href="assets/images/logo.png?v=3" />
+</head>
+
+<body class="text-slate-200 antialiased">
+
+<!-- ============ GLOBAL ANIMATED BACKGROUND ============ -->
+<div id="bgLayer" class="fixed inset-0 -z-10 overflow-hidden bg-ink">
+  <canvas id="bgCanvas"></canvas>
+  <div class="absolute inset-0 noise"></div>
+</div>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+    <a href="index.html" class="flex items-center gap-3 shrink-0">
+      <img src="assets/images/logo.png" alt="Shiwatrix Lifesciences" class="h-14 w-14 rounded-xl object-cover" />
+      <span class="brand-font font-700 text-lg text-white">Shiwatrix Lifesciences</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-10 text-sm text-slate-300">
+      <a href="index.html" class="nav-link active">Home</a>
+      <div class="relative group">
+        <a href="services.html" class="nav-link inline-flex items-center gap-1">
+          Services
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+                <div class="absolute left-0 top-full pt-4 w-[520px] opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+          <div class="dropdown-panel rounded-2xl p-5 backdrop-blur-xl border border-white/10 shadow-2xl grid grid-cols-2 gap-6">
+            <div>
+              <a href="service-medical-devices.html" class="block text-xs font-semibold uppercase tracking-widest text-accent mb-3 hover:text-white transition-colors">1. Medical Devices</a>
+              <div class="space-y-0.5">
+                <a href="service-bep.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Biological Evaluation Plan (BEP)</a>
+                <a href="service-tra.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Toxicological Risk Assessment (TRA)</a>
+                <a href="service-cc.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Chemical Characterization (CC)</a>
+                <a href="service-ber.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Biological Evaluation Report (BER)</a>
+                <a href="service-gap-analysis.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Gap Analysis for Compliance</a>
+                <a href="service-iso18562.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>ISO 18562 (Breathing Gas Pathways)</a>
+              </div>
+            </div>
+            <div>
+              <a href="service-other.html" class="block text-xs font-semibold uppercase tracking-widest text-accent3 mb-3 hover:text-white transition-colors">2. Pharmaceuticals</a>
+              <div class="space-y-0.5">
+                <a href="service-pharma-hazard.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent3 shrink-0"></span>Hazard Identification</a>
+                <a href="service-pharma-exposure.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent3 shrink-0"></span>Exposure Assessment</a>
+                <a href="service-pharma-submissions.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent3 shrink-0"></span>Regulatory Submissions</a>
+                <a href="service-pharma-impurities.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent3 shrink-0"></span>Evaluation of Impurities</a>
+                <a href="service-pharma-pharmacovigilance.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent3 shrink-0"></span>Pharmacovigilance Support</a>
+              </div>
+            </div>
+            <a href="services.html" class="col-span-2 flex items-center justify-center gap-2 mt-1 p-3 rounded-xl bg-white/5 text-sm text-white font-medium hover:bg-white/10 transition-colors">
+              View All Services
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button id="themeToggle" type="button" aria-label="Toggle light and dark theme" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white hover:bg-white/10 transition-colors duration-300 shrink-0">
+        <svg id="themeIconMoon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg id="themeIconSun" class="hidden" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <a href="contact.html" class="hidden md:inline-flex items-center gap-2 bg-white text-ink text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-accent hover:text-white transition-colors duration-300">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Assign a Session
+      </a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+  <div class="relative z-10 max-w-5xl mx-auto text-center pt-24">
+    <div class="hero-tag inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs text-slate-300 mb-8 opacity-0">
+      <span class="w-1.5 h-1.5 rounded-full bg-accent3 animate-pulse"></span>
+      Trusted by 80+ organizations across the globe
+    </div>
+    <h1 class="hero-line font-display font-800 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-white mb-6">
+      <span class="block overflow-hidden"><span class="inline-block hero-headline-accent text-white">Science You Can Trust.</span></span>
+      <span class="block overflow-hidden"><span class="inline-block hero-headline-accent text-white">Compliance You Can Rely On.</span></span>
+    </h1>
+    <p class="hero-sub max-w-2xl mx-auto text-slate-400 text-lg mb-10 opacity-0">
+      Shiwatrix Lifesciences delivers globally accredited toxicology and regulatory consulting
+      that helps medical device and pharmaceutical innovations reach patients safely, faster,
+      and in full compliance with international standards.
+    </p>
+    <div class="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0">
+      <a href="contact.html" class="theme-fixed btn-shine btn-primary-glow group inline-flex items-center gap-3 pl-7 pr-2 py-2 rounded-full bg-gradient-to-r from-accent via-accent2 to-accent3 bg-[length:200%_auto] bg-left hover:bg-right text-white font-semibold transition-[background-position] duration-700">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span>Assign a Session</span>
+        <span class="w-11 h-11 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 group-hover:bg-white/30 transition-all duration-300">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+      <a href="services.html" class="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full border border-white/15 text-white font-semibold overflow-hidden hover:border-white/0 transition-colors duration-300">
+        <span class="absolute inset-0 bg-white/5 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 -z-10"></span>
+        <span>Explore Our Services</span>
+        <svg class="group-hover:rotate-45 transition-transform duration-300" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500 text-xs" id="scrollHint">
+    <span>Scroll</span>
+    <div class="w-px h-10 bg-gradient-to-b from-slate-500 to-transparent"></div>
+  </div>
+</section>
+
+<!-- ============ WELCOME ============ -->
+<section class="py-24 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <div class="reveal-up order-2 md:order-1">
+      <span class="text-accent2 text-sm font-semibold tracking-widest uppercase">Welcome to Shiwatrix Lifesciences</span>
+      <h2 class="font-display font-700 text-3xl md:text-4xl text-white mt-4 mb-6 leading-snug">
+        The scientific foundation regulators expect.
+      </h2>
+      <p class="text-slate-400 leading-relaxed">
+        Bringing a medical device or pharmaceutical product to market takes more than great
+        engineering — it takes proof, backed by rigorous science, that the product is safe.
+        Shiwatrix Lifesciences builds that scientific foundation, from Biological Evaluation Plans
+        and Chemical Characterization to Toxicological Risk Assessments, led by globally accredited
+        ERT and DABT-certified toxicologists.
+      </p>
+    </div>
+    <div class="reveal-mask tilt order-1 md:order-2 rounded-[2.5rem] overflow-hidden h-[260px] md:h-[340px]">
+      <div class="curtain"></div>
+      <img src="assets/images/laboratory-equipment.jpg" alt="Medical laboratory equipment including a microscope and testing glassware" class="img-zoom w-full h-full object-cover" />
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="py-28 px-6 bg-white/[0.02] border-y border-white/10">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal-up mb-16 max-w-2xl">
+      <span class="text-accent text-sm font-semibold tracking-widest uppercase">Why choose us</span>
+      <h2 class="font-display font-700 text-4xl md:text-5xl text-white mt-4">
+        Why Choose Shiwatrix Lifesciences
+      </h2>
+    </div>
+
+    <div class="stagger-parent grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="stagger-item card rounded-3xl p-8">
+        <div class="w-11 h-11 rounded-xl bg-accent/15 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f6ef7" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        </div>
+        <h3 class="font-display font-600 text-lg text-white mb-2">Globally Accredited Expertise</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Our assessments are led by ERT and DABT-certified toxicologists, recognized credentials in international toxicology and regulatory science.</p>
+      </div>
+      <div class="stagger-item card rounded-3xl p-8">
+        <div class="w-11 h-11 rounded-xl bg-accent2/15 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <h3 class="font-display font-600 text-lg text-white mb-2">Three Decades of Combined Experience</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Decades of hands-on regulatory and scientific work across medical devices and pharmaceuticals inform every report we deliver.</p>
+      </div>
+      <div class="stagger-item card rounded-3xl p-8">
+        <div class="w-11 h-11 rounded-xl bg-accent3/15 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M4 4v16h16M8 15l3-4 3 3 4-6"/></svg>
+        </div>
+        <h3 class="font-display font-600 text-lg text-white mb-2">End-to-End Regulatory Support</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">From the first biological evaluation plan to final regulatory documentation, we support the entire safety and compliance journey — not just one piece of it.</p>
+      </div>
+      <div class="stagger-item card rounded-3xl p-8">
+        <div class="w-11 h-11 rounded-xl bg-accent/15 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f6ef7" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3 class="font-display font-600 text-lg text-white mb-2">A Proven Track Record</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">250+ projects delivered for 80+ clients across the globe speak to the reliability of our process.</p>
+      </div>
+      <div class="stagger-item card rounded-3xl p-8">
+        <div class="w-11 h-11 rounded-xl bg-accent2/15 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        </div>
+        <h3 class="font-display font-600 text-lg text-white mb-2">A Science-First, Tailored Approach</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">No two products are alike, and neither are our assessments. Every evaluation is built around the specific product, intended use, and regulatory pathway.</p>
+      </div>
+      <div class="stagger-item card rounded-3xl p-8">
+        <div class="w-11 h-11 rounded-xl bg-accent3/15 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18 14 14 0 010-18z"/></svg>
+        </div>
+        <h3 class="font-display font-600 text-lg text-white mb-2">Global Regulatory Fluency</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">We work fluently across ISO 10993, ISO 14971, FDA guidance, and European MDR, so your submission speaks the right regulatory language wherever you take your product to market.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE OFFER ============ -->
+<section class="py-28 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal-up mb-16 max-w-2xl">
+      <span class="text-accent2 text-sm font-semibold tracking-widest uppercase">What we offer</span>
+      <h2 class="font-display font-700 text-4xl md:text-5xl text-white mt-4">
+        Every service your safety case needs.
+      </h2>
+    </div>
+
+    <div class="theme-fixed service-slider relative reveal-up" data-slider>
+      <div class="overflow-hidden rounded-3xl">
+        <div class="service-slider-track flex" id="serviceSliderTrack">
+          <div class="service-slide relative shrink-0 w-full">
+            <div class="relative h-[420px] md:h-[500px]">
+              <img src="assets/images/laboratory-overview.jpg" alt="Laboratory where medical device biological safety evaluations are carried out" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/10"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-8 md:p-14">
+                <span class="text-accent2 text-xs uppercase tracking-widest font-semibold">1. Medical Devices</span>
+                <h3 class="font-display font-700 text-2xl md:text-4xl text-white mt-3 mb-4">Medical Device Services</h3>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-xl mb-6">Biological Evaluation Plans, Toxicological Risk Assessments, Chemical Characterization, Biological Evaluation Reports, Gap Analysis, and ISO 18562 breathing gas pathway evaluation.</p>
+                <a href="service-medical-devices.html" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:gap-3 transition-all duration-300">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </div>
+          </div>
+          <div class="service-slide relative shrink-0 w-full">
+            <div class="relative h-[420px] md:h-[500px]">
+              <img src="assets/images/pharmaceutical-capsules.jpg" alt="Pharmaceutical tablets and capsules representing pharmaceutical toxicology and regulatory studies" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/10"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-8 md:p-14">
+                <span class="text-accent2 text-xs uppercase tracking-widest font-semibold">2. Pharmaceuticals</span>
+                <h3 class="font-display font-700 text-2xl md:text-4xl text-white mt-3 mb-4">Pharmaceutical Services</h3>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-xl mb-6">Hazard identification, exposure assessment, toxicological risk assessment, regulatory submissions, evaluation of impurities, and pharmacovigilance support.</p>
+                <a href="service-other.html" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:gap-3 transition-all duration-300">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" data-slider-prev aria-label="Previous service" class="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-ink/60 border border-white/15 backdrop-blur flex items-center justify-center text-white hover:bg-ink/90 transition-colors">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <button type="button" data-slider-next aria-label="Next service" class="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-ink/60 border border-white/15 backdrop-blur flex items-center justify-center text-white hover:bg-ink/90 transition-colors">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+
+      <div class="flex justify-center gap-2 mt-6" data-slider-dots></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIES WE SERVE ============ -->
+<section class="py-16 border-y border-white/10 overflow-hidden bg-white/[0.02]">
+  <p class="reveal-up text-center text-slate-500 text-sm uppercase tracking-widest mb-8">Industries We Serve</p>
+  <div class="marquee-track" id="marquee">
+    <div class="flex items-center gap-16 pr-16 text-2xl font-display text-slate-500 whitespace-nowrap">
+      <span>Medical Device Manufacturers</span><span class="text-accent">&#10022;</span>
+      <span>Pharmaceutical Companies</span><span class="text-accent2">&#10022;</span>
+      <span>Biotechnology Organizations</span><span class="text-accent3">&#10022;</span>
+      <span>Healthcare Product Developers</span><span class="text-accent">&#10022;</span>
+      <span>CMOs</span><span class="text-accent2">&#10022;</span>
+      <span>Regulatory Affairs Teams</span><span class="text-accent3">&#10022;</span>
+      <span>Healthcare Startups</span><span class="text-accent">&#10022;</span>
+      <span>Overseas Medical Support</span><span class="text-accent2">&#10022;</span>
+      <span>Regulatory Filing Support</span><span class="text-accent3">&#10022;</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BY THE NUMBERS ============ -->
+<section class="py-24 px-6">
+  <div class="reveal-up text-center mb-16">
+    <span class="text-accent3 text-sm font-semibold tracking-widest uppercase">By the numbers</span>
+    <h2 class="font-display font-700 text-4xl md:text-5xl text-white mt-4">Shiwatrix Lifesciences, By the Numbers</h2>
+  </div>
+  <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+    <div class="stat-item">
+      <div class="font-display font-800 text-4xl md:text-5xl text-white"><span class="num" data-target="3">0</span></div>
+      <p class="text-slate-400 text-sm mt-2">Decades of Expertise</p>
+    </div>
+    <div class="stat-item">
+      <div class="font-display font-800 text-4xl md:text-5xl text-white"><span class="num" data-target="250">0</span>+</div>
+      <p class="text-slate-400 text-sm mt-2">Projects Delivered</p>
+    </div>
+    <div class="stat-item">
+      <div class="font-display font-800 text-4xl md:text-5xl text-white"><span class="num" data-target="80">0</span>+</div>
+      <p class="text-slate-400 text-sm mt-2">Global Clients</p>
+    </div>
+    <div class="stat-item reveal-up">
+      <div class="font-display font-800 text-xl md:text-2xl text-white leading-snug">ERT &middot; DABT &middot; UK &middot; CDSCO</div>
+      <p class="text-slate-400 text-sm mt-2">Accredited Experts</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW WE WORK ============ -->
+<section class="py-28 px-6 bg-white/[0.02] border-y border-white/10">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal-up mb-16 max-w-2xl">
+      <span class="text-accent text-sm font-semibold tracking-widest uppercase">Our process</span>
+      <h2 class="font-display font-700 text-4xl md:text-5xl text-white mt-4">How We Work</h2>
+    </div>
+
+    <div class="process-flow stagger-parent grid gap-y-10 md:grid-cols-5 md:gap-x-6">
+      <div class="process-step stagger-item">
+        <div class="process-node">1</div>
+        <h3 class="font-display font-600 text-lg text-white mb-2 mt-5 md:mt-6">Consult &amp; Understand</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">We start by understanding your product, its intended use, and your target regulatory pathway.</p>
+      </div>
+      <div class="process-step stagger-item">
+        <div class="process-node">2</div>
+        <h3 class="font-display font-600 text-lg text-white mb-2 mt-5 md:mt-6">Assess &amp; Analyze</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Our accredited toxicologists and scientists carry out the biological, chemical, or toxicological evaluation your product requires.</p>
+      </div>
+      <div class="process-step stagger-item">
+        <div class="process-node">3</div>
+        <h3 class="font-display font-600 text-lg text-white mb-2 mt-5 md:mt-6">Document &amp; Deliver</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">We compile clear, audit-ready scientific reports and regulatory documentation aligned to the standards your market requires.</p>
+      </div>
+      <div class="process-step stagger-item">
+        <div class="process-node">4</div>
+        <h3 class="font-display font-600 text-lg text-white mb-2 mt-5 md:mt-6">Support &amp; Sustain</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">We remain available for regulator queries, follow-up questions, and updates as standards evolve.</p>
+      </div>
+      <div class="process-step stagger-item">
+        <div class="process-node">5</div>
+        <h3 class="font-display font-600 text-lg text-white mb-2 mt-5 md:mt-6">Challenge &amp; Respond</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">If a regulator or reviewer challenges our reports or findings, our team responds directly and reworks the assessment, staying engaged until your product is fully ready for approval.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACCREDITATIONS ============ -->
+<section class="py-20 px-6">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="reveal-up mb-12">
+      <span class="text-accent2 text-sm font-semibold tracking-widest uppercase">Trusted credentials</span>
+      <h2 class="font-display font-700 text-3xl md:text-4xl text-white mt-4">Accredited &amp; Recognized By</h2>
+      <p class="text-slate-400 mt-4 max-w-xl mx-auto">Our team's expertise is certified and recognized by leading international toxicology and regulatory bodies.</p>
+    </div>
+    <div class="flex flex-wrap items-center justify-center gap-6">
+      <div class="logo-badge flex items-center justify-center rounded-full p-6 w-36 h-36 md:w-40 md:h-40">
+        <img src="assets/images/accreditation-eurotox.png" alt="Eurotox" class="max-h-11 md:max-h-12 w-auto object-contain" />
+      </div>
+      <div class="logo-badge flex items-center justify-center rounded-full p-6 w-36 h-36 md:w-40 md:h-40">
+        <img src="assets/images/accreditation-abt.jpg" alt="American Board of Toxicology" class="max-h-16 md:max-h-20 w-auto object-contain rounded-lg" />
+      </div>
+      <div class="logo-badge flex items-center justify-center rounded-full p-6 w-36 h-36 md:w-40 md:h-40">
+        <img src="assets/images/accreditation-bts.jpg" alt="British Toxicology Society" class="max-h-11 md:max-h-12 w-auto object-contain" />
+      </div>
+      <div class="logo-badge flex items-center justify-center rounded-full p-6 w-36 h-36 md:w-40 md:h-40">
+        <img src="assets/images/accreditation-cdsco.jpg" alt="Central Drugs Standard Control Organisation (CDSCO)" class="max-h-16 md:max-h-20 w-auto object-contain rounded-lg" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="py-32 px-6 relative overflow-hidden">
+  <div class="relative z-10 max-w-3xl mx-auto text-center cta-content reveal-up">
+    <h2 class="font-display font-800 text-4xl md:text-6xl text-white mb-6">
+      Ready to bring your innovation to market <span class="gradient-text">with confidence?</span>
+    </h2>
+    <p class="text-slate-400 text-lg mb-10">Talk to our regulatory and scientific experts today.</p>
+    <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-ink font-semibold hover:bg-accent hover:text-white transition-colors">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Assign a Session
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-white/10 py-14 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 mb-10">
+    <div>
+      <a href="index.html" class="flex items-center gap-3 mb-3">
+        <img src="assets/images/logo.png" alt="Shiwatrix Lifesciences" class="h-12 w-12 rounded-lg object-cover" />
+        <span class="brand-font font-700 text-lg text-white">Shiwatrix Lifesciences</span>
+      </a>
+      <p class="text-slate-500 text-sm leading-relaxed">Testing Today &middot; Safer Tomorrow</p>
+      <a href="mailto:info@shiwatrix.com" class="inline-block text-slate-400 text-sm mt-3 hover:text-white transition-colors">info@shiwatrix.com</a>
+      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="mt-4 w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-colors">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.24H4.8V23H.22V8.24zM8.4 8.24h4.38v2.02h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 7v8.12h-4.58v-7.2c0-1.72-.03-3.93-2.4-3.93-2.4 0-2.77 1.87-2.77 3.8v7.33H8.4V8.24z"/></svg>
+      </a>
+    </div>
+    <div>
+      <h4 class="text-white font-display font-600 mb-4 text-sm uppercase tracking-widest">Company</h4>
+      <ul class="space-y-2 text-sm text-slate-400">
+        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-display font-600 mb-4 text-sm uppercase tracking-widest">Services</h4>
+      <ul class="space-y-2 text-sm text-slate-400">
+        <li><a href="service-medical-devices.html" class="hover:text-white transition-colors">Medical Devices</a></li>
+        <li><a href="service-other.html" class="hover:text-white transition-colors">Pharmaceuticals</a></li>
+        <li><a href="services.html" class="hover:text-white transition-colors">View All Services</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-display font-600 mb-4 text-sm uppercase tracking-widest">Get in Touch</h4>
+      <p class="text-slate-400 text-sm mb-4">Ready to bring your innovation to market with confidence?</p>
+      <a href="contact.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-ink text-sm font-semibold hover:bg-accent hover:text-white transition-colors"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Assign a Session</a>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center text-slate-600 text-sm">
+    <span>&copy; 2026 Shiwatrix Lifesciences. All rights reserved.</span>
+    <span class="hidden sm:inline">&middot;</span>
+    <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

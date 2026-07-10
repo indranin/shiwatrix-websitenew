@@ -1,0 +1,18 @@
+{
+  "name": "shiwatrix-lifesciences-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shiwatrix Lifesciences website served by an Express app, with a built-in contact form email handler (also deployable as a Vercel/Netlify serverless function).",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2",
+    "nodemailer": "^9.0.3"
+  }
+}

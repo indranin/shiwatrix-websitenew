@@ -1,0 +1,277 @@
+html { scroll-behavior: smooth; }
+body { background: #0b1120; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+h1, h2, h3, .font-display { font-family: 'Sora', sans-serif; }
+
+::selection { background: #4f6ef7; color: white; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0b1120; }
+::-webkit-scrollbar-thumb { background: #263049; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #4f6ef7; }
+
+.hero-headline-accent { font-family: 'Fraunces', serif; }
+
+.brand-font { font-family: 'Fraunces', serif; }
+
+.gradient-text {
+  background: linear-gradient(90deg, #4f6ef7, #22d3ee 50%, #34d399);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Services mega-menu dropdown surface — theme-aware (unlike .theme-fixed
+   surfaces, this one is meant to flip with the site so it stays readable
+   and on-brand in both dark and light mode). */
+.dropdown-panel { background: rgba(11,17,32,0.95); }
+html.light .dropdown-panel { background: rgba(255,255,255,0.97); }
+
+.marquee-track { display: flex; width: max-content; }
+
+.reveal-mask { position: relative; overflow: hidden; }
+.reveal-mask .curtain { position: absolute; inset: 0; background: #0b1120; z-index: 10; }
+html.light .reveal-mask:not(.theme-fixed) .curtain { background: #eaf1fc; }
+
+.cursor-glow {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79,110,247,0.10) 0%, rgba(79,110,247,0) 70%);
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+}
+
+#bgCanvas { display: block; }
+
+.nav-link { position: relative; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0%;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-link.active { color: #fff; }
+
+.num { font-variant-numeric: tabular-nums; }
+
+/* Timeline step connector (How We Work / Service Delivery Process) */
+.step-item { position: relative; }
+.step-num {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+  background: linear-gradient(135deg, rgba(79,110,247,0.25), rgba(34,211,238,0.15));
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* Innovative hero CTA buttons */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.9s ease;
+}
+.btn-shine:hover::before { transform: translateX(120%); }
+
+.btn-primary-glow {
+  animation: pulseGlow 2.6s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(79,110,247,0.45); }
+  50% { box-shadow: 0 0 0 14px rgba(79,110,247,0); }
+}
+
+/* How We Work: connected process flow — a vertical timeline on mobile that
+   becomes a horizontal roadmap on desktop, replacing the earlier stacked
+   identical cards with a clearer, more visual step-by-step path. */
+.process-flow { position: relative; }
+.process-flow::before {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(79,110,247,0.45), rgba(34,211,238,0.45), rgba(52,211,153,0.45));
+}
+@media (min-width: 768px) {
+  .process-flow::before {
+    left: 10%;
+    right: 10%;
+    top: 1.5rem;
+    bottom: auto;
+    width: auto;
+    height: 2px;
+  }
+}
+
+.process-step { position: relative; padding-left: 4.5rem; }
+@media (min-width: 768px) {
+  .process-step { padding-left: 0.5rem; padding-right: 0.5rem; text-align: center; }
+}
+
+.process-node {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #fff;
+  background: linear-gradient(135deg, #4f6ef7, #22d3ee);
+  box-shadow: 0 0 0 6px rgba(79,110,247,0.12);
+  z-index: 1;
+}
+@media (min-width: 768px) {
+  .process-node { position: static; margin: 0 auto 1.25rem; }
+}
+
+.process-step:nth-child(2) .process-node { background: linear-gradient(135deg, #22d3ee, #34d399); box-shadow: 0 0 0 6px rgba(34,211,238,0.12); }
+.process-step:nth-child(3) .process-node { background: linear-gradient(135deg, #34d399, #4f6ef7); box-shadow: 0 0 0 6px rgba(52,211,153,0.12); }
+.process-step:nth-child(4) .process-node { background: linear-gradient(135deg, #4f6ef7, #22d3ee); box-shadow: 0 0 0 6px rgba(79,110,247,0.12); }
+.process-step:nth-child(5) .process-node { background: linear-gradient(135deg, #22d3ee, #34d399); box-shadow: 0 0 0 6px rgba(34,211,238,0.12); }
+
+/* Accreditation logo badges (Eurotox / ABT / BTS row) — circular seal shape */
+.logo-badge {
+  background: #ffffff;
+  border-radius: 50%;
+  border: 1px solid rgba(15,23,42,0.06);
+  box-shadow: 0 12px 28px -16px rgba(0,0,0,0.45);
+}
+html.light .logo-badge {
+  box-shadow: 0 12px 28px -16px rgba(79,110,247,0.35);
+  border-color: rgba(79,110,247,0.14);
+}
+
+.table-standards th, .table-standards td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+}
+.table-standards thead th {
+  background: rgba(79,110,247,0.12);
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  color: #fff;
+}
+.table-standards tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+
+/* ============ LIGHT THEME ============
+   Toggled via a "light" class on <html> (assets/main.js). Elements marked
+   .theme-fixed (photo banners, colored CTA/dropdown surfaces) keep their
+   original dark styling in both themes since their own background already
+   provides the contrast their white text needs. */
+
+html.light body { background: #eaf1fc; color: #1e293b; }
+html.light #bgLayer { background: linear-gradient(180deg, #eaf1fc 0%, #f5f9ff 45%, #eaf1fc 100%); }
+html.light #bgCanvas { opacity: 0.28; }
+html.light .noise { opacity: 0.35; }
+html.light .cursor-glow { opacity: 0.45; }
+
+html.light ::-webkit-scrollbar-track { background: #dbe7fb; }
+html.light ::-webkit-scrollbar-thumb { background: #a9c3ee; }
+html.light ::-webkit-scrollbar-thumb:hover { background: #4f6ef7; }
+
+html.light .text-white:not(.theme-fixed) { color: #0f172a; }
+/* Plain hover:text-white links (dropdown items, footer links) turn invisible
+   on a light page unless the hover also swaps to a colored background —
+   restore those (hover:bg-accent) to white, everything else goes dark. */
+html.light .hover\:text-white:hover:not(.theme-fixed) { color: #0f172a; }
+html.light .hover\:bg-accent.hover\:text-white:hover { color: #fff; }
+html.light .text-slate-200:not(.theme-fixed) { color: #0f172a; }
+html.light .text-slate-300:not(.theme-fixed) { color: #1e293b; }
+html.light .text-slate-400:not(.theme-fixed) { color: #475569; }
+html.light .text-slate-500:not(.theme-fixed) { color: #64748b; }
+html.light .text-slate-600:not(.theme-fixed) { color: #7c8798; }
+
+/* Accent labels/links need a darker, more saturated shade to stay readable
+   on a white page (the dark-theme hex values are tuned for a navy backdrop). */
+html.light .text-accent:not(.theme-fixed) { color: #3452d9; }
+html.light .text-accent2:not(.theme-fixed) { color: #0a8fa8; }
+html.light .text-accent3:not(.theme-fixed) { color: #15915f; }
+
+/* Cards get a crisp white surface (popping against the pale-blue page) with
+   a blue-tinted border/shadow so the whole light theme reads as one cohesive
+   blue + white palette rather than plain white-on-white. */
+html.light .card:not(.theme-fixed) {
+  background: linear-gradient(180deg, #ffffff, #f6faff);
+  border-color: rgba(79,110,247,0.16);
+  box-shadow: 0 1px 2px rgba(30,64,175,0.04), 0 12px 28px -16px rgba(79,110,247,0.28);
+}
+
+html.light .border-white\/0 { border-color: rgba(79,110,247,0); }
+html.light .border-white\/10 { border-color: rgba(79,110,247,0.16); }
+html.light .border-white\/15 { border-color: rgba(79,110,247,0.2); }
+
+html.light .bg-white\/5:not(.theme-fixed) { background: rgba(79,110,247,0.06); }
+html.light .bg-white\/10:not(.theme-fixed) { background: rgba(79,110,247,0.09); }
+html.light .bg-white\/20:not(.theme-fixed) { background: rgba(79,110,247,0.12); }
+html.light .bg-white\/30:not(.theme-fixed) { background: rgba(79,110,247,0.18); }
+/* Alternating section stripes flip to crisp white against the pale-blue
+   body, so sections read as distinct white/blue bands down the page. */
+html.light .bg-white\/\[0\.02\] { background: #ffffff; }
+
+html.light .bg-white.text-ink { background: #0f172a; color: #fff; }
+html.light .bg-ink\/80 { background: rgba(234,241,252,0.85); }
+
+html.light .nav-link.active { color: #0f172a; }
+html.light .step-num { border-color: rgba(79,110,247,0.22); color: #0f172a; }
+
+/* Footer's solid accent CTA hovers to white in dark mode for contrast against
+   the navy footer; on a light page that would make the button vanish, so
+   swap the hover state to a dark fill instead. */
+html.light .bg-accent.hover\:bg-white:hover { background: #0f172a; color: #fff; }
+
+/* Standards table: header tint + zebra striping tuned for the blue/white page. */
+html.light .table-standards thead th { background: rgba(79,110,247,0.1); }
+html.light .table-standards tbody tr:nth-child(even) { background: rgba(79,110,247,0.045); }
+
+/* Restore original white-on-dark styling inside opted-out surfaces */
+html.light .theme-fixed .text-white,
+html.light .theme-fixed.text-white { color: #fff; }
+html.light .theme-fixed .bg-white\/20 { background: rgba(255,255,255,0.2); }
+html.light .theme-fixed .bg-white\/30 { background: rgba(255,255,255,0.3); }
+html.light .theme-fixed .text-accent { color: #4f6ef7; }
+html.light .theme-fixed .text-accent2 { color: #22d3ee; }
+html.light .theme-fixed .text-accent3 { color: #34d399; }
+html.light .theme-fixed .text-slate-200 { color: #e2e8f0; }
+html.light .theme-fixed .text-slate-300 { color: #cbd5e1; }
+html.light .theme-fixed .text-slate-400 { color: #94a3b8; }
+html.light .theme-fixed .text-slate-500 { color: #64748b; }
+html.light .theme-fixed .text-slate-600 { color: #475569; }

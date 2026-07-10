@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chemical Characterization (CC) | Shiwatrix Lifesciences</title>
+<meta name="description" content="Identification and quantification of the chemical substances a device or material may release, forming the factual foundation for toxicological risk assessment." />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/tailwind-config.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<link rel="stylesheet" href="assets/style.css" />
+<script>(function(){try{if(localStorage.getItem('theme')==='light'){document.documentElement.classList.add('light');}}catch(e){}})();</script>
+<link rel="icon" type="image/png" href="assets/images/logo.png?v=3" />
+</head>
+
+<body class="text-slate-200 antialiased">
+
+<div id="bgLayer" class="fixed inset-0 -z-10 overflow-hidden bg-ink">
+  <canvas id="bgCanvas"></canvas>
+  <div class="absolute inset-0 noise"></div>
+</div>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+    <a href="index.html" class="flex items-center gap-3 shrink-0">
+      <img src="assets/images/logo.png" alt="Shiwatrix Lifesciences" class="h-14 w-14 rounded-xl object-cover" />
+      <span class="brand-font font-700 text-lg text-white">Shiwatrix Lifesciences</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-10 text-sm text-slate-300">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="relative group">
+        <a href="services.html" class="nav-link active inline-flex items-center gap-1">
+          Services
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+                <div class="absolute left-0 top-full pt-4 w-[520px] opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+          <div class="dropdown-panel rounded-2xl p-5 backdrop-blur-xl border border-white/10 shadow-2xl grid grid-cols-2 gap-6">
+            <div>
+              <a href="service-medical-devices.html" class="block text-xs font-semibold uppercase tracking-widest text-accent mb-3 hover:text-white transition-colors">1. Medical Devices</a>
+              <div class="space-y-0.5">
+                <a href="service-bep.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Biological Evaluation Plan (BEP)</a>
+                <a href="service-tra.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Toxicological Risk Assessment (TRA)</a>
+                <a href="service-cc.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Chemical Characterization (CC)</a>
+                <a href="service-ber.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Biological Evaluation Report (BER)</a>
+                <a href="service-gap-analysis.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Gap Analysis for Compliance</a>
+                <a href="service-iso18562.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>ISO 18562 (Breathing Gas Pathways)</a>
+              </div>
+            </div>
+            <div>
+              <a href="service-other.html" class="block text-xs font-semibold uppercase tracking-widest text-accent3 mb-3 hover:text-white transition-colors">2. Pharmaceuticals</a>
+              <div class="space-y-0.5">
+                <a href="service-pharma-hazard.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent3 shrink-0"></span>Hazard Identification</a>
+                <a href="service-pharma-exposure.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent3 shrink-0"></span>Exposure Assessment</a>
+                <a href="service-pharma-submissions.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent3 shrink-0"></span>Regulatory Submissions</a>
+                <a href="service-pharma-impurities.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent3 shrink-0"></span>Evaluation of Impurities</a>
+                <a href="service-pharma-pharmacovigilance.html" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-white/5 text-sm text-slate-300 hover:text-white transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-accent3 shrink-0"></span>Pharmacovigilance Support</a>
+              </div>
+            </div>
+            <a href="services.html" class="col-span-2 flex items-center justify-center gap-2 mt-1 p-3 rounded-xl bg-white/5 text-sm text-white font-medium hover:bg-white/10 transition-colors">
+              View All Services
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button id="themeToggle" type="button" aria-label="Toggle light and dark theme" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white hover:bg-white/10 transition-colors duration-300 shrink-0">
+        <svg id="themeIconMoon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg id="themeIconSun" class="hidden" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <a href="contact.html" class="hidden md:inline-flex items-center gap-2 bg-white text-ink text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-accent hover:text-white transition-colors duration-300">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Assign a Session
+      </a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="theme-fixed relative h-[70vh] min-h-[480px] overflow-hidden reveal-mask hero-banner">
+  <div class="curtain"></div>
+  <img src="assets/images/chemical-testing-pipette.jpg" alt="Pipetting samples into a microplate for chemical characterization testing" class="img-zoom absolute inset-0 w-full h-full object-cover" />
+  <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/20"></div>
+  <div class="absolute inset-0 flex items-end">
+    <div class="max-w-6xl mx-auto px-6 pb-14 w-full">
+      <span class="reveal-up text-accent3 text-sm font-semibold tracking-widest uppercase">Core Service</span>
+      <h1 class="reveal-up font-display font-800 text-4xl md:text-6xl text-white mt-3 mb-4 max-w-3xl">Chemical Characterization (CC)</h1>
+      <p class="reveal-up text-slate-300 text-lg max-w-2xl">
+        Identifying and quantifying the chemicals a device may release — the factual
+        foundation every toxicological risk assessment depends on.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT IS CC ============ -->
+<section class="py-24 px-6">
+  <div class="max-w-3xl mx-auto text-center">
+    <span class="reveal-up text-accent text-sm font-semibold tracking-widest uppercase">What is Chemical Characterization?</span>
+    <p class="reveal-up text-slate-300 text-lg leading-relaxed mt-6">
+      Chemical Characterization is the systematic identification and quantification of chemical
+      constituents present in or released from a medical device or its materials. Following ISO
+      10993-18, this includes extractables studies under exaggerated conditions to identify the
+      full profile of potential chemicals, and leachables studies under clinically relevant
+      conditions to identify what a patient would actually be exposed to.
+    </p>
+    <p class="reveal-up text-slate-400 leading-relaxed mt-4">
+      The resulting chemical data feeds directly into the toxicological risk assessment and helps
+      determine whether further biological testing is needed or can be scientifically waived.
+    </p>
+  </div>
+</section>
+
+<!-- ============ WHY IT MATTERS ============ -->
+<section class="py-24 px-6 bg-white/[0.02] border-y border-white/10">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <div class="reveal-mask tilt rounded-3xl overflow-hidden h-[360px]">
+      <div class="curtain"></div>
+      <img src="assets/images/cc-why-it-matters-chemistry.jpg" alt="Laboratory glassware and chemical structure representing chemical characterization analysis" class="img-zoom w-full h-full object-cover" />
+    </div>
+    <div>
+      <span class="reveal-up text-accent3 text-sm font-semibold tracking-widest uppercase">Why it matters</span>
+      <h2 class="reveal-up font-display font-700 text-3xl md:text-4xl text-white mt-4 mb-6 leading-snug">
+        The chemistry every risk conclusion rests on.
+      </h2>
+      <ul class="space-y-4 text-slate-400 leading-relaxed">
+        <li class="reveal-up flex gap-3"><span class="text-accent mt-1">&#10022;</span> A Toxicological Risk Assessment is only as reliable as the chemistry data behind it.</li>
+        <li class="reveal-up flex gap-3"><span class="text-accent2 mt-1">&#10022;</span> Identifies unexpected compounds early, before they surface as a regulator question.</li>
+        <li class="reveal-up flex gap-3"><span class="text-accent3 mt-1">&#10022;</span> Supports material and supplier changes with a clear before/after chemical comparison.</li>
+        <li class="reveal-up flex gap-3"><span class="text-accent mt-1">&#10022;</span> Required under ISO 10993-18 for most contact-classification devices.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT'S INCLUDED ============ -->
+<section class="py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal-up mb-14 max-w-2xl">
+      <span class="text-accent2 text-sm font-semibold tracking-widest uppercase">What's included</span>
+      <h2 class="font-display font-700 text-3xl md:text-4xl text-white mt-4">Methodologies we apply</h2>
+    </div>
+    <div class="stagger-parent grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="stagger-item card rounded-2xl p-6">
+        <h3 class="font-display font-600 text-white mb-2">Extractables &amp; Leachables Testing</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Identifying and quantifying chemical constituents released by the device.</p>
+      </div>
+      <div class="stagger-item card rounded-2xl p-6">
+        <h3 class="font-display font-600 text-white mb-2">Exposure Assessment</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Quantifying the nature, duration, and extent of patient exposure.</p>
+      </div>
+      <div class="stagger-item card rounded-2xl p-6">
+        <h3 class="font-display font-600 text-white mb-2">Literature Reviews</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Cross-referencing known compound toxicity data where available.</p>
+      </div>
+      <div class="stagger-item card rounded-2xl p-6">
+        <h3 class="font-display font-600 text-white mb-2">Gap Analysis</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Flagging where additional analytical work is needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STANDARDS ============ -->
+<section class="py-20 px-6 bg-white/[0.02] border-y border-white/10">
+  <div class="max-w-4xl mx-auto text-center">
+    <span class="reveal-up text-accent text-sm font-semibold tracking-widest uppercase">Standards we align to</span>
+    <div class="reveal-up flex flex-wrap justify-center gap-3 mt-6">
+      <span class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-slate-300">ISO 10993 Series</span>
+      <span class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-slate-300">Good Scientific Practices</span>
+      <span class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-slate-300">Client-Specific Requirements</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal-up mb-14 max-w-2xl">
+      <span class="text-accent3 text-sm font-semibold tracking-widest uppercase">How we run it</span>
+      <h2 class="font-display font-700 text-3xl md:text-4xl text-white mt-4">Our process for your CC study</h2>
+    </div>
+    <div class="steps-group space-y-6">
+      <div class="step-item flex gap-6 items-start card rounded-2xl p-6">
+        <div class="step-num">1</div>
+        <div>
+          <h3 class="font-display font-600 text-xl text-white mb-2">Define Extraction Conditions</h3>
+          <p class="text-slate-400 leading-relaxed">Conditions are set to reflect your device's material, use, and patient contact.</p>
+        </div>
+      </div>
+      <div class="step-item flex gap-6 items-start card rounded-2xl p-6">
+        <div class="step-num">2</div>
+        <div>
+          <h3 class="font-display font-600 text-xl text-white mb-2">Analytical Testing</h3>
+          <p class="text-slate-400 leading-relaxed">Extractables and leachables are identified and quantified.</p>
+        </div>
+      </div>
+      <div class="step-item flex gap-6 items-start card rounded-2xl p-6">
+        <div class="step-num">3</div>
+        <div>
+          <h3 class="font-display font-600 text-xl text-white mb-2">Interpret the Results</h3>
+          <p class="text-slate-400 leading-relaxed">Findings are contextualized against your device's clinical use.</p>
+        </div>
+      </div>
+      <div class="step-item flex gap-6 items-start card rounded-2xl p-6">
+        <div class="step-num">4</div>
+        <div>
+          <h3 class="font-display font-600 text-xl text-white mb-2">Hand Off to Risk Assessment</h3>
+          <p class="text-slate-400 leading-relaxed">Data is structured for direct use in your Toxicological Risk Assessment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT YOU RECEIVE ============ -->
+<section class="py-24 px-6 bg-white/[0.02] border-y border-white/10">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal-up mb-12 max-w-2xl">
+      <span class="text-accent text-sm font-semibold tracking-widest uppercase">The deliverable</span>
+      <h2 class="font-display font-700 text-3xl md:text-4xl text-white mt-4">What you receive</h2>
+    </div>
+    <div class="stagger-parent grid sm:grid-cols-2 gap-5">
+      <div class="stagger-item card rounded-2xl p-6 flex gap-4 items-start">
+        <svg class="shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+        <p class="text-slate-300 text-sm leading-relaxed">A full extractables/leachables chemical profile.</p>
+      </div>
+      <div class="stagger-item card rounded-2xl p-6 flex gap-4 items-start">
+        <svg class="shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+        <p class="text-slate-300 text-sm leading-relaxed">Toxicologically relevant compound identification and quantification.</p>
+      </div>
+      <div class="stagger-item card rounded-2xl p-6 flex gap-4 items-start">
+        <svg class="shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+        <p class="text-slate-300 text-sm leading-relaxed">An interpreted summary connecting findings to your device's risk profile.</p>
+      </div>
+      <div class="stagger-item card rounded-2xl p-6 flex gap-4 items-start">
+        <svg class="shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+        <p class="text-slate-300 text-sm leading-relaxed">Data structured for direct use in your Toxicological Risk Assessment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPLORE OTHER SERVICES ============ -->
+<section class="py-16 px-6">
+  <div class="max-w-6xl mx-auto text-center">
+    <span class="reveal-up text-slate-500 text-sm uppercase tracking-widest mb-6 block">Explore other services</span>
+    <div class="reveal-up flex flex-wrap justify-center gap-3">
+      <a href="service-bep.html" class="px-5 py-2.5 rounded-full border border-white/10 text-sm text-slate-300 hover:border-white/30 hover:text-white transition-colors">Biological Evaluation Plan</a>
+      <a href="service-ber.html" class="px-5 py-2.5 rounded-full border border-white/10 text-sm text-slate-300 hover:border-white/30 hover:text-white transition-colors">Biological Evaluation Report</a>
+      <a href="service-tra.html" class="px-5 py-2.5 rounded-full border border-white/10 text-sm text-slate-300 hover:border-white/30 hover:text-white transition-colors">Toxicological Risk Assessment</a>
+      <a href="service-gap-analysis.html" class="px-5 py-2.5 rounded-full border border-white/10 text-sm text-slate-300 hover:border-white/30 hover:text-white transition-colors">Gap Analysis for Compliance</a>
+      <a href="service-iso18562.html" class="px-5 py-2.5 rounded-full border border-white/10 text-sm text-slate-300 hover:border-white/30 hover:text-white transition-colors">ISO 18562</a>
+      <a href="service-other.html" class="px-5 py-2.5 rounded-full border border-white/10 text-sm text-slate-300 hover:border-white/30 hover:text-white transition-colors">Pharmaceutical Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="py-32 px-6 relative overflow-hidden">
+  <div class="relative z-10 max-w-3xl mx-auto text-center reveal-up">
+    <h2 class="font-display font-800 text-4xl md:text-6xl text-white mb-6">
+      Ready to characterize your <span class="gradient-text">product's chemistry?</span>
+    </h2>
+    <p class="text-slate-400 text-lg mb-10">Talk to our regulatory and scientific experts today.</p>
+    <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-ink font-semibold hover:bg-accent hover:text-white transition-colors">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Assign a Session
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-white/10 py-14 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 mb-10">
+    <div>
+      <a href="index.html" class="flex items-center gap-3 mb-3">
+        <img src="assets/images/logo.png" alt="Shiwatrix Lifesciences" class="h-12 w-12 rounded-lg object-cover" />
+        <span class="brand-font font-700 text-lg text-white">Shiwatrix Lifesciences</span>
+      </a>
+      <p class="text-slate-500 text-sm leading-relaxed">Testing Today &middot; Safer Tomorrow</p>
+      <a href="mailto:info@shiwatrix.com" class="inline-block text-slate-400 text-sm mt-3 hover:text-white transition-colors">info@shiwatrix.com</a>
+      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="mt-4 w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-colors">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.24H4.8V23H.22V8.24zM8.4 8.24h4.38v2.02h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 7v8.12h-4.58v-7.2c0-1.72-.03-3.93-2.4-3.93-2.4 0-2.77 1.87-2.77 3.8v7.33H8.4V8.24z"/></svg>
+      </a>
+    </div>
+    <div>
+      <h4 class="text-white font-display font-600 mb-4 text-sm uppercase tracking-widest">Company</h4>
+      <ul class="space-y-2 text-sm text-slate-400">
+        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-display font-600 mb-4 text-sm uppercase tracking-widest">Services</h4>
+      <ul class="space-y-2 text-sm text-slate-400">
+        <li><a href="service-medical-devices.html" class="hover:text-white transition-colors">Medical Devices</a></li>
+        <li><a href="service-other.html" class="hover:text-white transition-colors">Pharmaceuticals</a></li>
+        <li><a href="services.html" class="hover:text-white transition-colors">View All Services</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-display font-600 mb-4 text-sm uppercase tracking-widest">Get in Touch</h4>
+      <p class="text-slate-400 text-sm mb-4">Ready to bring your innovation to market with confidence?</p>
+      <a href="contact.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-ink text-sm font-semibold hover:bg-accent hover:text-white transition-colors"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Assign a Session</a>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center text-slate-600 text-sm">
+    <span>&copy; 2026 Shiwatrix Lifesciences. All rights reserved.</span>
+    <span class="hidden sm:inline">&middot;</span>
+    <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
