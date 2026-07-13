@@ -14,6 +14,15 @@
   const submitButton = form.querySelector('button[type="submit"]');
   const statusRegion = document.getElementById('formStatus');
   const successPanel = document.getElementById('formSuccess');
+  const sendAnotherBtn = document.getElementById('sendAnotherBtn');
+
+  if (sendAnotherBtn) {
+    sendAnotherBtn.addEventListener('click', () => {
+      form.reset();
+      if (successPanel) successPanel.classList.add('hidden');
+      form.classList.remove('hidden');
+    });
+  }
 
   const RULES = {
     fullName: { required: true, minLength: 2, maxLength: 100 },

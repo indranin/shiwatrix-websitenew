@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact Us | Shiwatrix Lifesciences</title>
-<meta name="description" content="Request a consultation with the Shiwatrix Lifesciences team — toxicology and regulatory consulting for medical device and pharmaceutical innovations." />
+<title>Contact Us | Shiwatrix Lifesciences Pvt Ltd</title>
+<meta name="description" content="Request a consultation with the Shiwatrix Lifesciences Pvt Ltd team — toxicology and regulatory consulting for medical device and pharmaceutical innovations." />
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="assets/tailwind-config.js"></script>
@@ -33,8 +33,8 @@
 <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
   <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
     <a href="index.html" class="flex items-center gap-3 shrink-0">
-      <img src="assets/images/logo.png" alt="Shiwatrix Lifesciences" class="h-14 w-14 rounded-xl object-cover" />
-      <span class="brand-font font-700 text-lg text-white">Shiwatrix Lifesciences</span>
+      <img src="assets/images/logo.png" alt="Shiwatrix Lifesciences Pvt Ltd" class="h-14 w-14 rounded-xl object-cover" />
+      <span class="brand-font font-700 text-lg text-white">Shiwatrix Lifesciences Pvt Ltd</span>
     </a>
     <nav class="hidden md:flex items-center gap-10 text-sm text-slate-300">
       <a href="index.html" class="nav-link">Home</a>
@@ -111,7 +111,8 @@
   <div class="max-w-6xl mx-auto grid lg:grid-cols-5 gap-10">
 
     <!-- Form -->
-    <div class="reveal-up lg:col-span-3 card rounded-3xl p-8 md:p-10">
+    <div class="reveal-up lg:col-span-3 relative overflow-hidden card rounded-3xl p-8 md:p-10 shadow-[0_0_0_1px_rgba(52,211,153,0.12),0_20px_60px_rgba(52,211,153,0.1)]">
+      <div class="pointer-events-none absolute -right-16 -top-16 w-44 h-44 rounded-full bg-accent3/10 blur-3xl"></div>
       <form id="contactForm" data-endpoint="/api/contact" class="space-y-6" novalidate>
 
         <!-- Honeypot field: clipped to zero size (sr-only) rather than moved
@@ -212,11 +213,14 @@
 
       <!-- Success state, shown in place of the form once the server confirms the email was sent -->
       <div id="formSuccess" class="hidden text-center py-10" role="status" aria-live="polite">
-        <div class="w-14 h-14 rounded-full bg-accent3/15 flex items-center justify-center mx-auto mb-5">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+        <div class="w-16 h-16 rounded-full bg-accent3 flex items-center justify-center mx-auto mb-5 shadow-[0_0_40px_rgba(52,211,153,0.45)]">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
         </div>
         <h3 class="font-display font-700 text-2xl text-white mb-2">Thank you.</h3>
         <p class="text-slate-400 max-w-sm mx-auto">Your inquiry has been received. A member of our regulatory and scientific team will follow up with you soon.</p>
+        <button type="button" id="sendAnotherBtn" class="mt-6 inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-white/15 text-white text-sm font-semibold hover:border-white/30 hover:bg-white/5 transition-colors">
+          Send Another Message
+        </button>
       </div>
     </div>
 
@@ -257,8 +261,8 @@
   <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 mb-10">
     <div>
       <a href="index.html" class="flex items-center gap-3 mb-3">
-        <img src="assets/images/logo.png" alt="Shiwatrix Lifesciences" class="h-12 w-12 rounded-lg object-cover" />
-        <span class="brand-font font-700 text-lg text-white">Shiwatrix Lifesciences</span>
+        <img src="assets/images/logo.png" alt="Shiwatrix Lifesciences Pvt Ltd" class="h-12 w-12 rounded-lg object-cover" />
+        <span class="brand-font font-700 text-lg text-white">Shiwatrix Lifesciences Pvt Ltd</span>
       </a>
       <p class="text-slate-500 text-sm leading-relaxed">Testing Today &middot; Safer Tomorrow</p>
       <a href="mailto:info@shiwatrix.com" class="inline-block text-slate-400 text-sm mt-3 hover:text-white transition-colors">info@shiwatrix.com</a>
@@ -290,7 +294,7 @@
     </div>
   </div>
   <div class="max-w-6xl mx-auto border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center text-slate-600 text-sm">
-    <span>&copy; 2026 Shiwatrix Lifesciences. All rights reserved.</span>
+    <span>&copy; 2026 Shiwatrix Lifesciences Pvt Ltd. All rights reserved.</span>
     <span class="hidden sm:inline">&middot;</span>
     <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
   </div>
